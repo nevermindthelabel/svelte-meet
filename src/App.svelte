@@ -1,7 +1,14 @@
 <script lang="ts">
   import Header from './UI/Header.svelte';
   import MeetupGrid from './Meetups/MeetupGrid.svelte';
-  const dummyMeetups = [
+  let title = '';
+  let subtitle = '';
+  let image = '';
+  let address = '';
+  let email = '';
+  let description = '';
+
+  let dummyMeetups = [
     {
       id: 'meet1',
       title: 'People standing in front of tree meetup',
@@ -23,35 +30,48 @@
       email: 'things@test.com'
     }
   ];
+  const addMeetup = () => {
+    const newMeetup = {
+      id: Math.random().toString(),
+      title,
+      subtitle,
+      image,
+      address,
+      email,
+      description
+    };
+    dummyMeetups = [...dummyMeetups, newMeetup];
+  };
 </script>
 
 <Header />
 <main>
   <section class="form">
-    <form>
+    <form on:submit|preventDefault={addMeetup}>
       <div class="form-control">
         <label for="title">Title</label>
-        <input type="text" id="title" />
+        <input bind:value={title} type="text" id="title" />
       </div>
       <div class="form-control">
         <label for="subtitle">Subtitle</label>
-        <input type="text" id="subtitle" />
-      </div>
-      <div class="form-control">
-        <label for="description">Description</label>
-        <input type="text" id="description" />
+        <input bind:value={subtitle} type="text" id="subtitle" />
       </div>
       <div class="form-control">
         <label for="image">Image URL</label>
-        <input type="url" id="image" />
+        <input bind:value={image} type="url" id="image" />
       </div>
       <div class="form-control">
         <label for="address">Address</label>
-        <input type="text" id="address" />
+        <input bind:value={address} type="text" id="address" />
       </div>
       <div class="form-control">
         <label for="email">Email</label>
-        <input type="email" id="email" />
+        <input bind:value={email} type="email" id="email" />
+      </div>
+      <div class="form-control">
+        <label for="description">Description</label>
+        <textarea bind:value={description} rows="3" id="description" />
+        <button>Save Meetup</button>
       </div>
     </form>
   </section>
