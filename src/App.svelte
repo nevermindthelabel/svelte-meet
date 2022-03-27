@@ -1,7 +1,10 @@
 <script lang="ts">
+  import Header from './UI/Header.svelte';
 </script>
 
-<main>stuff go here</main>
+<main>
+  <Header />
+</main>
 
 <style>
 </style>
