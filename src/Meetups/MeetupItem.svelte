@@ -1,15 +1,26 @@
+<script lang="ts">
+  export let title = '';
+  export let subtitle = '';
+  export let image = '';
+  export let address = '';
+  export let description = '';
+  export let email = '';
+</script>
+
 <article>
   <header>
-    <h1>TITLE</h1>
-    <h2>SUBTITLE</h2>
+    <h1>{title}</h1>
+    <h2>{subtitle}</h2>
+    <p>{address}</p>
   </header>
   <div class="image">
-    <img src="" alt="" />
+    <img src={image} alt={title} />
   </div>
   <div class="content">
-    <p />
+    <p>{description}</p>
   </div>
   <footer>
+    <a href="mailto:{email}">Contact</a>
     <button>Show Details</button>
     <button>Favorite</button>
   </footer>
