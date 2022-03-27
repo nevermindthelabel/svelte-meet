@@ -1,6 +1,6 @@
 <script lang="ts">
   import Header from './UI/Header.svelte';
-  import MeetupItem from './Meetups/MeetupItem.svelte';
+  import MeetupGrid from './Meetups/MeetupGrid.svelte';
   const dummyMeetups = [
     {
       id: 'meet1',
@@ -25,17 +25,13 @@
   ];
 </script>
 
+<Header />
 <main>
-  <Header />
-  <section class="meetups">
-    {#each dummyMeetups as { title, address, description, image, email, subtitle }}
-      <MeetupItem {title} {address} {description} {image} {email} {subtitle} />
-    {/each}
-  </section>
+  <MeetupGrid {dummyMeetups} />
 </main>
 
 <style>
-  .meetups {
-    margin: 5rem 0;
+  main {
+    margin-top: 5rem;
   }
 </style>
