@@ -1,6 +1,7 @@
 <script lang="ts">
   import Header from './UI/Header.svelte';
   import MeetupGrid from './Meetups/MeetupGrid.svelte';
+  import TextInput from './UI/TextInput.svelte';
   let title = '';
   let subtitle = '';
   let image = '';
@@ -48,7 +49,20 @@
 <main>
   <section class="form">
     <form on:submit|preventDefault={addMeetup}>
-      <div class="form-control">
+      <TextInput id="title" label="Title" value={title} on:input={e => (title = e.target.value)} />
+      <TextInput id="subtitle" label="Subtitle" value={subtitle} on:input={e => (subtitle = e.target.value)} />
+      <TextInput id="image" label="Image URL" value={image} on:input={e => (image = e.target.value)} />
+      <TextInput id="address" label="Address" value={address} on:input={e => (address = e.target.value)} />
+      <TextInput id="email" label="Email" value={email} on:input={e => (email = e.target.value)} />
+      <TextInput
+        id="description"
+        label="Description"
+        controlType="textarea"
+        rows="3"
+        value={description}
+        on:input={e => (description = e.target.value)}
+      />
+      <!-- <div class="form-control">
         <label for="title">Title</label>
         <input bind:value={title} type="text" id="title" />
       </div>
@@ -70,9 +84,9 @@
       </div>
       <div class="form-control">
         <label for="description">Description</label>
-        <textarea bind:value={description} rows="3" id="description" />
-        <button>Save Meetup</button>
-      </div>
+        <textarea bind:value={description} rows="3" id="description" /> -->
+      <button>Save Meetup</button>
+      <!-- </div> -->
     </form>
   </section>
   <section class="meetups">
