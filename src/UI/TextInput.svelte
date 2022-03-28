@@ -47,4 +47,7 @@
     width: 100%;
     margin: 0.25rem 0;
   }
+  textarea {
+    resize: vertical;
+  }
 </style>
