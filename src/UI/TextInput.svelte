@@ -4,7 +4,7 @@
   export let id = '';
   export let label;
   export let type = 'text';
-  export let rows;
+  export let rows = '3';
 </script>
 
 <div class="form-control">
