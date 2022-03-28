@@ -2,6 +2,7 @@
   import Header from './UI/Header.svelte';
   import MeetupGrid from './Meetups/MeetupGrid.svelte';
   import TextInput from './UI/TextInput.svelte';
+  import Button from './UI/Button.svelte';
   let title = '';
   let subtitle = '';
   let image = '';
@@ -62,7 +63,7 @@
         value={description}
         on:input={e => (description = e.target.value)}
       />
-      <button>Save Meetup</button>
+      <Button type="submit" caption="Save Meetup" />
     </form>
   </section>
   <section class="meetups">
