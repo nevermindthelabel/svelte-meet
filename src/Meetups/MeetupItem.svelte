@@ -21,9 +21,9 @@
     <p>{description}</p>
   </div>
   <footer>
-    <a href="mailto:{email}">Contact</a>
+    <Button href="mailto:{email}" caption="Contact" />
     <Button type="button" caption="Show Details" />
-    <Button type="button" caption="Favorite ❣️" />
+    <Button type="button" caption="Favorite" />
   </footer>
 </article>
 
