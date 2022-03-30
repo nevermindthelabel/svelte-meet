@@ -27,12 +27,14 @@
   </div>
   <footer>
     <Button href="mailto:{email}" caption="Contact" />
-    <Button mode="outline" type="button" caption="Show Details" />
     <Button
       type="button"
-      caption={isFavorite ? 'Favorite' : 'Not Favorite'}
+      mode="outline"
+      color={isFavorite ? null : 'success'}
+      caption={isFavorite ? 'Un-Fav' : 'Favorite'}
       on:click={() => dispatcher('toggle-favorite', id)}
     />
+    <Button type="button" caption="Show Details" />
   </footer>
 </article>
 
