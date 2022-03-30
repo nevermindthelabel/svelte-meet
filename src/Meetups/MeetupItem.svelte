@@ -8,6 +8,7 @@
   export let description = '';
   export let email = '';
   export let id = '';
+  export let isFavorite = false;
 
   const dispatcher = createEventDispatcher();
 </script>
@@ -27,7 +28,11 @@
   <footer>
     <Button href="mailto:{email}" caption="Contact" />
     <Button mode="outline" type="button" caption="Show Details" />
-    <Button type="button" caption="Favorite" on:click={() => dispatcher('toggle-favorite', id)} />
+    <Button
+      type="button"
+      caption={isFavorite ? 'Favorite' : 'Not Favorite'}
+      on:click={() => dispatcher('toggle-favorite', id)}
+    />
   </footer>
 </article>
 

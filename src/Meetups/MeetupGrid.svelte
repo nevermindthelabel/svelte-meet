@@ -4,8 +4,8 @@
 </script>
 
 <section class="meetups">
-  {#each dummyMeetups as { title, address, description, image, email, subtitle, id }}
-    <MeetupItem {title} {address} {description} {image} {email} {subtitle} {id} on:toggle-favorite />
+  {#each dummyMeetups as { title, address, description, image, email, subtitle, id, isFavorite }}
+    <MeetupItem {title} {address} {description} {image} {email} {subtitle} {id} {isFavorite} on:toggle-favorite />
   {/each}
 </section>
 
