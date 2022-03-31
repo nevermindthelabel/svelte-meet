@@ -20,6 +20,12 @@
       email,
       description
     });
+    title = '';
+    subtitle = '';
+    image = '';
+    address = '';
+    email = '';
+    description = '';
   }
 </script>
 
