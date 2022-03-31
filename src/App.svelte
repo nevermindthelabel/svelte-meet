@@ -6,6 +6,7 @@
 
   let editMode = false;
 
+  $: console.log(editMode);
   let dummyMeetups = [
     {
       id: 'meet1',
@@ -30,19 +31,21 @@
       isFavorite: false
     }
   ];
-  // const addMeetup = () => {
-  //   const newMeetup = {
-  //     id: Math.random().toString(),
-  //     title,
-  //     subtitle,
-  //     image,
-  //     address,
-  //     email,
-  //     description,
-  //     isFavorite: false
-  //   };
-  //   dummyMeetups = [...dummyMeetups, newMeetup];
-  // };
+
+  const addMeetup = (e: CustomEvent) => {
+    const newMeetup = {
+      id: Math.random().toString(),
+      title: e.detail.title,
+      subtitle: e.detail.Subtitle,
+      image: e.detail.image,
+      address: e.detail.address,
+      email: e.detail.email,
+      description: e.detail.description,
+      isFavorite: false
+    };
+    dummyMeetups = [...dummyMeetups, newMeetup];
+    editMode = false;
+  };
 
   function toggleFavorite(e: CustomEvent) {
     // console.log(e.detail);
@@ -62,11 +65,12 @@
 
 <Header />
 <main>
-  <section class="form" />
   <section class="meetups">
-    <Button caption="Add Meetup" on:click={toggleEdit} />
+    <div class="padding">
+      <Button caption="Add Meetup" on:click={toggleEdit} />
+    </div>
     {#if editMode}
-      <EditMeetup />
+      <EditMeetup on:save-event={addMeetup} />
     {/if}
     <MeetupGrid {dummyMeetups} on:toggle-favorite={toggleFavorite} />
   </section>
@@ -75,5 +79,8 @@
 <style>
   main {
     margin-top: 5rem;
+  }
+  .padding {
+    padding: 1rem;
   }
 </style>
