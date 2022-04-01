@@ -43,7 +43,7 @@
     value={description}
     on:input={e => (description = e.target.value)}
   />
-  <Button type="submit" caption="Save Meetup" />
+  <Button type="submit">Save Meetup</Button>
 </form>
 
 <style>

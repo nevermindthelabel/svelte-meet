@@ -67,7 +67,7 @@
 <main>
   <section class="meetups">
     <div class="padding">
-      <Button caption="Add Meetup" on:click={toggleEdit} />
+      <Button on:click={toggleEdit}>Add Meetup</Button>
     </div>
     {#if editMode}
       <EditMeetup on:save-event={addMeetup} />
