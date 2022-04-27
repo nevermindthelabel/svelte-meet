@@ -6,7 +6,6 @@
 
   let editMode = false;
 
-  $: console.log(editMode);
   let dummyMeetups = [
     {
       id: 'meet1',
@@ -48,7 +47,6 @@
   };
 
   function toggleFavorite(e: CustomEvent) {
-    // console.log(e.detail);
     const id = e.detail;
     const updateMeetupFav = { ...dummyMeetups.find(meetup => meetup.id === id) };
     updateMeetupFav.isFavorite = !updateMeetupFav.isFavorite;
@@ -61,6 +59,10 @@
   function toggleEdit() {
     editMode = !editMode;
   }
+
+  function cancelEdit() {
+    editMode = null;
+  }
 </script>
 
 <Header />
@@ -70,7 +72,7 @@
       <Button on:click={toggleEdit}>Add Meetup</Button>
     </div>
     {#if editMode}
-      <EditMeetup on:save-event={addMeetup} />
+      <EditMeetup on:save-event={addMeetup} on:cancel={cancelEdit} />
     {/if}
     <MeetupGrid {dummyMeetups} on:toggle-favorite={toggleFavorite} />
   </section>
